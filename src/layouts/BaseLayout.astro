@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Headway Northumberland", 
+  description = "Supporting brain injury survivors across Northumberland." 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+<header class="header">
+  <div class="header-inner container">
+    <div class="logo">
+      <a href="/" class="logo-link">Headway Northumberland</a>
+    </div>
+
+    <!-- Hamburger Toggle Button -->
+    <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-links" id="nav-menu">
+      <a href="/">Home</a>
+      <a href="/about">About Us</a>
+      <a href="/services">Services</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const navMenu = document.getElementById('nav-menu');
+
+  if (hamburgerBtn && navMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('is-active');
+      hamburgerBtn.classList.toggle('is-active');
+      hamburgerBtn.setAttribute('aria-expanded', isOpen.toString());
+    });
+  }
+</script>
+
+    <main class="main">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <p>&copy; {new Date().getFullYear()} Headway Northumberland. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

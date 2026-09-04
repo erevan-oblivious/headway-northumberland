@@ -1,17 +1,68 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout 
+  title="Home | Headway Northumberland"
+  description="Supporting people living with acquired brain injury at drop-ins across Northumberland."
+>
+  <section class="hero-banner">
+    <div class="hero-content">
+	    <h1 class="hero-heading">
+        We support people living with acquired brain injury at drop-ins across Northumberland including in Hexham, Alnwick, Berwick, Morpeth and Ashington
+      </h1>
+      <a href="#schedule" class="cta-button">Check When We Meet</a>
+	  </div>
+  </section>
+
+<section>
+  <div>
+    <h2>Community Neuro Hubs</h2>
+    <p>Clearer Futures Community Neuro Hubs (and other activities) for people with Acquired and Traumatic Brain Injuries, Stroke Survivors, and other Neurological Conditions.</p>
+  </div>
+    <h3 id="schedule" class="schedule-title">Where and when we usually meet:</h3>
+      
+  <ul class="card-list">
+        
+    <li class="card">
+      <div class="card-header">
+        <strong>Hexham</strong>
+        <span class="card-accent">Every Wednesday, 11am–1pm</span>
+      </div>
+        <p class="card-footer">Adapt (North East) Community Hub, Burn Lane, Hexham, NE46 3HN</p>
+    </li>
+
+    <li class="card">
+      <div class="card-header">
+        <strong>Alnwick</strong>
+        <span class="card-accent">3rd Friday of every month, 11am–1pm</span>
+      </div>
+        <p class="card-footer">Weavers Court, Swordy Drive, Alnwick NE66 1SZ</p>
+    </li>
+
+    <li class="card">
+      <div class="card-header">
+        <strong>Berwick</strong>
+        <span class="card-accent">2nd Monday of every month, 10am–12pm</span>
+      </div>
+        <p class="card-footer">Northern View Community Centre, Spittal, Berwick upon Tweed TD15 2JU</p>
+    </li>
+
+    <li class="card">
+      <div class="card-header">
+        <strong>Morpeth</strong>
+        <span class="card-accent">Last Thursday of every month, 10:30am–12pm</span>
+      </div>
+        <p class="card-footer">Electrical Wizard, Wetherspoons, 11 New Market, Morpeth NE61 1PS</p>
+    </li>
+
+  </ul>
+</section>
+
+<section>
+  <div>
+    <h2> Everyone is welcome to all sessions.</h2>
+  </div>
+</section>
+
+</BaseLayout>
