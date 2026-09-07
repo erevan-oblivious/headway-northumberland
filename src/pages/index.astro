@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import bandImg from '../images/band.jpeg';
+import berwickImg from '../images/berwick-group.jpg';
+import ashingtonImg from '../images/ashington-group.jpg';
 ---
 
 <BaseLayout 
@@ -82,6 +86,58 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <p><a href="https://www.headway.org.uk/supporting-you/in-your-area/approved-care-providers/" class="text-link">Directory</a> of approved residential homes, rehabilitation units and respite facilities specialising in Acquired Brain Injury (ABI)</p>
     <p>For more information on the above services go to <a href="mailto:helpline@headway.org.uk" class="text-link"> helpline@headway.org.uk</a> or call the Helpline on <a href="tel:08088002244" class="text-link">0808 800 2244</a>.</p>
     <p>Headway also lobbies for better support and resources to be made available to people affected by brain injury and works to raise awareness of brain injury and the devastating effects it can have.</p>
+  </div>
+</section>
+
+<hr class="divider-full"/>
+
+<section>
+  <div class="prose-container">
+    <h2>Local Support</h2>
+    <p>In addition to the services shown above, a network of 125 Headway groups and branches across the UK and Channel Islands provides a wide range of services including rehabilitation programmes, carer support, social re-integration, community outreach and respite care to survivors and families in their own communities.</p>
+    <p>Headway's local groups and branches work hard to raise funds at a local level to continue to provide and develop the services they offer.</p>
+  </div>
+</section>
+
+<section>
+  <div class="card-scroller-container">
+  <a href="/news" class="image-card">
+    <Image src={bandImg} alt="Our News" />
+    <div class="card-overlay">
+      <h3>News</h3>
+    </div>
+  </a>
+
+  <a href="/events" class="image-card">
+    <Image src={ashingtonImg} alt="Our Events" />
+    <div class="card-overlay">
+      <h3>Events</h3>
+    </div>
+  </a>
+
+  <a href="/contact" class="image-card">
+    <Image src={berwickImg} alt="Contact Headway Northumberland" />
+    <div class="card-overlay">
+      <h3>Get in Touch</h3>
+    </div>
+  </a>
+</div>
+</section>
+
+<section>
+  <div class="prose-container">
+    <h2>Donations</h2>
+    <p>We would be delighted for you to make a donation to Headway Northumberland. As a local branch organised by volunteers – your generosity helps us deliver services for the people who need them.</p>
+    <script async
+      src="https://js.stripe.com/v3/buy-button.js">
+    </script>
+
+    <stripe-buy-button
+      buy-button-id="buy_btn_1U6Zz7ReePdSQ9TChqJDQQSy"
+     publishable-key="pk_live_51U0gDyReePdSQ9TC1uEU1gqV7cjVZ9TecrOn5p9guQ3hn2zYCRmE5jc2W0JT3GPqNjHyKO7j9Q6IOYBGM4fiDbPs004luPpVUg"
+    >
+    </stripe-buy-button>
+
   </div>
 </section>
 

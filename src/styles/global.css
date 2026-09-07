@@ -218,7 +218,7 @@ hr.divider-full {
 .prose-container {
   max-width: 65ch;
   margin-inline: auto;
-  padding-block: 1rem;
+  padding: 1rem;
 }
 
 .hero-content {
@@ -330,6 +330,89 @@ hr.divider-full {
   margin: 0;
   line-height: 1.4;
   opacity: 0.9;
+}
+
+/* Mobile-First: Horizontal Touch Scroller */
+.card-scroller-container {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-subtle) transparent;
+}
+
+.image-card {
+  /* Occupies 80% width on mobile so the next card peeks into view */
+  flex: 0 0 80%;
+  max-width: 320px;
+  scroll-snap-align: start;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Gradient overlay for legibility */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(5, 56, 108, 0.9) 0%,
+    rgba(5, 56, 108, 0.2) 60%,
+    transparent 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+}
+
+.card-overlay h3 {
+  color: var(--text-bright);
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Hover States for Desktop */
+.image-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.image-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Tablet & Desktop (768px and up): Switch to 3-column row */
+@media (min-width: 768px) {
+  .card-scroller-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding-inline: 0;
+  }
+
+  .image-card {
+    flex: initial;
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 /* Footer */
