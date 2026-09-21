@@ -49,6 +49,7 @@ img, video {
   max-width: 100%;
   height: auto;
   display: block;
+  margin-inline: auto
 }
 
 /* Enable native smooth scrolling */

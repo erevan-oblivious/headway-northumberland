@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import brainstarImg from '../images/brain-star.png'
+---
+
+<BaseLayout 
+  title="News | Headway Northumberland"
+  description="News from our branch"
+>
+<h1>News</h1>
+
+<section>
+    <div class="prose-container">
+        <h2>My Brain Star</h2>
+        <p>We're very happy to announce that Northumberland Headway can offer member support through My Brain Star™.</p>
+        <p>My Brain Star is designed to offer support to people who are recovering following a brain injury - perhaps due to an accident, stroke, brain tumour, aneurysm, or other cause. A tool to support you The Star is a holistic, person-centred keywork and measurement tool to use as part of one-to-one keywork with an individual.</p>
+        <p>Completing the Star is an engaging and collaborative process that helps to build an open, trusting relationship with the person that attends the group drop in (Neuro Hub).</p>
+        <p>The Star creates a safe space where genuine conversations can happen, and people feel listened to and understood. Within this framework you can explore all relevant aspects of a person's life, track progress and create a shared basis for an action or support plan.</p>
+    </div>
+    <Image src={brainstarImg} alt="A Brain Star diagram that is used to understand a person's experience living with acquired brain injury."/ >
+    <div class="prose-container">
+        <p>The Star is a person- centred, whole life approach for a one to one (face to face) to support a person in an engaging collaborative process that helps to build an open trusting relationship in a safe space where genuine conversations can happen and people feel listened to and understood.</p>
+        <p>The Star is a journey of change and within this framework you can explore, track progress and create a support plan that leads to change.</p>
+    </div>
+    </section>
+
+<hr class="divider-full"/>
+
+<section>
+    <div class="prose-container">
+        <h2>Clearer Futures</h2>
+        <p>Joint Initiative between Headway Northumberland and Brainbox</p>
+        <p>From November 2022 two charities, Headway Northumberland and Brainbox, began working together in an initiative to help people who have an acquired brain injury (ABI). The joint initiative, Clearer Futures, aims to provide all-age support across the County.</p>
+        <p>Headway helps brain injury survivors across the UK comes to terms with their new circumstances, re-integrate into family and community life and maximise their opportunities and choices.</p>
+        <p>It also provides practical and emotional support for families and carers, recognising that they too are coping with new and demanding responsibilities that can leave them feeling isolated and helpless. </p>
+        <p>Drop-ins in Northumberland are run by volunteers whose main aim is to provide both social support and opportunities for brain injury survivors, as well as peer support for carers.</p>
+    </div>
+</section>
+
+</BaseLayout>
