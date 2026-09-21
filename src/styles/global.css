@@ -4,6 +4,8 @@
 }
 
 :root {
+  /* Layout Tokens */
+  --max-width-wide: 71.25rem; /* 1140px - matches header, main, and slider */
   /* Color Palette */
   --bg-primary: #05386c; 
   --bg-secondary: #D00079;
@@ -39,17 +41,33 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Enable native smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Offset scroll stopping position so the heading isn't flush with the viewport edge */
+.schedule-title {
+  scroll-margin-top: 2rem;
+}
+
+/* Lists */
 ul {
   list-style-position: inside;
   padding: 0;
   margin: 0;
 }
 
+/* ==========================================================================
+   Images, sliders and video
+   ========================================================================== */
+
+
 img, video {
   max-width: 100%;
   height: auto;
   display: block;
-  margin-inline: auto
+  margin-inline: auto;
 }
 
 /* Figure Container */
@@ -68,14 +86,117 @@ figcaption {
   font-style: italic;
 }
 
-/* Enable native smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Wide Image */
+.wide-image {
+  width: 100%;
+  max-width: var(--max-width-wide);
+  margin-inline: auto;
+  margin-block: 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* Offset scroll stopping position so the heading isn't flush with the viewport edge */
-.schedule-title {
-  scroll-margin-top: 2rem;
+/* Photo Pair Grid */
+.photo-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 0.5rem;                    /* Optional gap between images */
+  aspect-ratio: 16 / 9;            /* Matches standard landscape photo dimensions */
+  width: 100%;
+  margin-block: 1.5rem;
+  margin-inline: auto;
+  border-radius: var(--radius-md);
+  overflow: hidden;                /* Keeps rounded corners clean */
+}
+
+.photo-pair img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;              /* Fills the half-slot without distorting */
+  display: block;
+}
+
+/* Slider Wrapper */
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: var(--max-width-wide); /* 71.25rem */
+  margin-block: 2rem;
+  margin-inline: auto;
+  padding: 0;
+}
+
+/* Photo Track */
+.slider-track {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Hides scrollbar on Firefox */
+  border-radius: var(--radius-md);
+}
+
+.slider-track::-webkit-scrollbar {
+  display: none; /* Hides scrollbar on Chrome/Safari */
+}
+
+/* Individual Slide */
+.slide {
+  flex: 0 0 100%; /* Shows one full image at a time */
+  scroll-snap-align: start;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Navigation Buttons */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10; /* Ensures buttons float over the image */
+  background: rgba(5, 56, 108, 0.8); /* Navy background */
+  color: var(--text-bright);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.slider-btn:hover {
+  background: var(--bg-secondary); /* Magenta accent */
+  transform: translateY(-50%) scale(1.05);
+}
+
+.slider-btn.prev {
+  left: 1rem;
+}
+
+.slider-btn.next {
+  right: 1rem;
+}
+
+/* Hide navigation buttons on touch screens where swipe is natural */
+@media (hover: none) and (pointer: coarse) {
+  .slider-btn {
+    display: none;
+  }
 }
 
 /* ==========================================================================
@@ -132,25 +253,6 @@ html {
 .text-link:hover {
   color: var(--text-bright);
 
-}
-
-hr.divider-full {
-  border: none;
-  height: 1px;
-  background: linear-gradient(
-    90deg, 
-    transparent 0%, 
-    var(--border-subtle) 20%, 
-    var(--border-subtle) 80%, 
-    transparent 100%
-  );
-  margin-block: 3rem;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
 }
 
 /* Base Hamburger Styles (Hidden on Desktop) */
@@ -230,6 +332,25 @@ hr.divider-full {
 .heading {
   font-size: var(--font-size-lg);
   margin: 0;
+}
+
+hr.divider-full {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    var(--border-subtle) 20%, 
+    var(--border-subtle) 80%, 
+    transparent 100%
+  );
+  margin-block: 1.5rem;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .prose-container {

@@ -1,15 +1,117 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
+import Kavs1Img from '../images/kavs1.jpeg';
+import Kavs2Img from '../images/kavs2.jpeg';
+import Kavs3Img from '../images/kavs3.jpeg';
+import Kavs4Img from '../images/kavs4.png';
+import Kavs5Img from '../images/kavs5.jpeg';
+import Kavs6Img from '../images/kavs6.jpg';
+import HexhamImg from '../images/hexham-group.jpeg';
+import AshingtonImg from '../images/ashington-group.jpg';
+import AshingtonPresImg from '../images/ashington-pres.jpg';
+import BerwickImg from '../images/berwick-group.jpg';
+
+const slides = [
+  { src: Kavs1Img, alt: 'Kings Award for Voluntary Service Ceremony - man and woman standing' },
+  { src: Kavs2Img, alt: 'Kings Award for Voluntary Service Ceremony - man and woman talking' },
+  { src: Kavs3Img, alt: 'Kings Award for Voluntary Service Ceremony - woman announcing award' },
+  { src: Kavs4Img, alt: 'Kings Award for Voluntary Service Ceremony - man and two women standing side-by-side' },
+  { src: Kavs5Img, alt: 'Kings Award for Voluntary Service Ceremony - man talking' },
+  { src: Kavs6Img, alt: 'Kings Award for Voluntary Service Ceremony - logo' },
+];
 ---
 
 <BaseLayout 
   title="Events | Headway Northumberland"
   description="Events from our branch"
 >
+<hr class="divider-full"/>
+
 <h1>Events</h1>
 
 <hr class="divider-full"/>
+
+<section>
+  <h2>Announcements</h2>
+  <div class="prose-container">
+    <h3>King's Award for Voluntary Service</h3>
+    <p>The volunteers of Headway Northumberland have been awarded The King's Award for Voluntary Service for 2024, marking the contribution they make every day to the lives of brain injury survivors in the region.</p>
+    <p>This is the highest award a local voluntary group can receive in the UK and is equivalent to an MBE. Now, Headway Northumberland is one of 281 local charities, social enterprises and voluntary groups to receive the prestigious award this year.</p>
+    <p>Their work, along with others from across the UK, is a reminder of the ways fantastic volunteers are contributing to their local communities and working to make life better for those around them.</p>
+  </div>
+
+<!-- slider -->
+
+  <div class="slider-wrapper">
+    <button class="slider-btn prev" id="slider-prev" aria-label="Previous slide"> &lsaquo; </button>
+
+    <div class="slider-track" id="slider-track">
+      {slides.map((slide) => (
+        <div class="slide">
+          <Image src={slide.src} alt={slide.alt} class="slide-image" />
+    </div>
+    ))}
+  </div>
+
+    <button class="slider-btn next" id="slider-next" aria-label="Next slide"> &rsaquo; </button>
+  </div>
+
+  <script>
+    const track = document.getElementById('slider-track');
+    const prevBtn = document.getElementById('slider-prev');
+    const nextBtn = document.getElementById('slider-next');
+
+    if (track && prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => {
+        track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+      });
+    }
+  </script>
+
+<!-- end slider -->
+
+  <div class="prose-container">
+    <p>Julie Cordon, Chair of the Board of Trustees (now retired), said: “I am delighted that Headway Northumberland has been recognised with this prestigious award.”</p>
+    <p>"As one of the largest counties in the country, with rural, coastal and industrial areas, it is only through the dedication, hard work and passion of our volunteers that we can offer such valued support to brain injury survivors and people with neurological conditions across the county.”</p>
+    <p>The volunteers were celebrated at an event held at The Torch Centre in Hexham, on 15th November 2024, where Julie Cordon and Trustee Ron Payne (Pictured left), received the award crystal and certificate from Dr Caroline Pryer, Lord-Lieutenant of Northumberland.</p>
+    <p>Julie Cordon concluded: “I'm so proud of all of our volunteers and I look forward to the expansion and development of our services in the future, working alongside them.”</p>
+  </div>
+
+</section>
+
+<hr class="divider-full"/>
+
+<section>
+
+  <h2>Past Events</h2>
+
+  <div class="prose-container">
+    <h3>Hexham Assistive Technology Session</h3>
+    <p>Hexham drop-in hosted a very informative session covering online safety and how to identify internet scams for members from Hexham and Morpeth.</p>
+  </div>
+  <Image src={HexhamImg} alt="A group of people attending an event in Hexham." class="wide-image" />
+  <hr class="divider-full"/>
+
+  <div class="prose-container">
+    <h3>Workshop in Ashington</h3>
+    <p>“What do my thoughts sound like” workshop at the Ashington Drop-in led by Jorge Boehringer was enjoyed by members from Ashington.</p>
+  </div>
+  <div class="photo-pair">
+    <Image src={AshingtonImg} alt="A man presenting to a group sat around a table" />
+    <Image src={AshingtonPresImg} alt="A man holding his head and presenting a diagram on a laptop" />
+  </div>
+
+  <div class="prose-container"
+>   <h3>Berwick 6th Birthday</h3>
+    <p>An enjoyable celebration of Berwick's 6th anniversary with cake and candle.</p>
+  </div>
+  <Image src={BerwickImg} alt="A group of people celebrating a child's birthday in Berwick." class="wide-image" />
+</section>
 
 
 
