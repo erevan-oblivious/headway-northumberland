@@ -14,7 +14,7 @@
   --text-bright: #ffffff;
   --text-muted: #a8c5e2;
   --text-link-pink: #ff80c8; /* Vibrant light pink (~7.5:1 contrast) */
-  --accent-light: #fbe6f2;
+  --text-light-pink: #fbe6f2;
 
   /* Typography */
   --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -50,6 +50,22 @@ img, video {
   height: auto;
   display: block;
   margin-inline: auto
+}
+
+/* Figure Container */
+.image-figure {
+  margin-block: 0;
+  margin-inline: 0;
+  text-align: center;
+}
+
+/* Captions */
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-light-pink);
+  line-height: 1.4;
+  font-style: italic;
 }
 
 /* Enable native smooth scrolling */
@@ -220,6 +236,15 @@ hr.divider-full {
   max-width: 65ch;
   margin-inline: auto;
   padding: 1rem;
+}
+
+.prose-container ul { /* Styles all content lists automatically */
+  width: fit-content;
+  margin-inline: auto;
+  text-align: left;
+  list-style-position: outside;
+  padding-left: 1.25rem;
+  margin-block: 1rem;
 }
 
 .hero-content {
@@ -425,4 +450,17 @@ hr.divider-full {
   padding: 1.25rem 2rem;
   font-size: var(--font-size-base);
   color: var(--text-muted);
+}
+
+/* Links within the footer */
+.footer a {
+  color: var(--text-muted); /* Matches default footer text color */
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+/* Hover and focus states for accessibility */
+.footer a:hover,
+.footer a:focus {
+  color: var(--text-bright);
 }

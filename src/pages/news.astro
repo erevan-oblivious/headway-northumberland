@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import brainstarImg from '../images/brain-star.png'
+import queensawardImg from '../images/queens-award.jpg'
+import brainboxImg from '../images/brainbox-banner.png'
 ---
 
 <BaseLayout 
@@ -9,6 +11,8 @@ import brainstarImg from '../images/brain-star.png'
   description="News from our branch"
 >
 <h1>News</h1>
+
+<hr class="divider-full"/>
 
 <section>
     <div class="prose-container">
@@ -30,12 +34,30 @@ import brainstarImg from '../images/brain-star.png'
 <section>
     <div class="prose-container">
         <h2>Clearer Futures</h2>
-        <p>Joint Initiative between Headway Northumberland and Brainbox</p>
+        <p style="color: var(--text-link-pink);">Joint Initiative between Headway Northumberland and Brainbox</p>
         <p>From November 2022 two charities, Headway Northumberland and Brainbox, began working together in an initiative to help people who have an acquired brain injury (ABI). The joint initiative, Clearer Futures, aims to provide all-age support across the County.</p>
         <p>Headway helps brain injury survivors across the UK comes to terms with their new circumstances, re-integrate into family and community life and maximise their opportunities and choices.</p>
         <p>It also provides practical and emotional support for families and carers, recognising that they too are coping with new and demanding responsibilities that can leave them feeling isolated and helpless. </p>
         <p>Drop-ins in Northumberland are run by volunteers whose main aim is to provide both social support and opportunities for brain injury survivors, as well as peer support for carers.</p>
     </div>
+    <figure class="image-figure">
+        <Image src={queensawardImg} alt="The Queen's Award for Voluntary Service logo."/ >
+        <figcaption>The charity is a very proud recipient of The Queens Award for Voluntary Service 2019</figcaption>
+    </figure>
+    <div class="prose-container">
+        <p>Brainbox is a proactive neuro-disability charity supporting families across the North East of England where a child or adult has survived an Acquired Brain Injury or is living with a Neurological Condition or Neurodiversity. Brainbox is also a Safe Reporting Centre for Disability Hate Crime.</p>
+        <p>The charity was established in 2010 and currently offers three core services delivered by staff and volunteer teams:</p>
+        <ul>
+            <li>Family Support Service</li>
+            <li>Community Listening Service</li>
+            <li>Social Activity Programme</li>
+        </ul>
+        <p>Additional projects offered are: Tot To Teens (0-12 years), and Transition Kids (12-17 years).</p>
+    </div>
+    <figure class="image-figure">
+        <Image src={brainboxImg} alt="A banner image for Brainbox, a charity that supports people with acquired brain injury."/ >
+        <figcaption>Brainbox is delighted to collaborate with Headway Northumberland towards establishing the Clearer Futures project</figcaption>
+    </figure>
 </section>
 
 </BaseLayout>
