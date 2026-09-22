@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import { Image } from 'astro:assets';
+import LogoImg from '../images/headway-logo.png';
 
 interface Props {
   title?: string;
@@ -23,10 +25,11 @@ const {
   </head>
   <body>
 <header class="header">
-  <div class="header-inner container">
-    <div class="logo">
-      <a href="/" class="logo-link">Headway Northumberland</a>
-    </div>
+  <div class="header-inner">
+      <a href="/" class="logo-link">
+        <Image src={LogoImg} alt="" class="header-logo" loading="eager"/>
+        <span class="logo-title">Headway Northumberland</span>
+      </a>
 
     <!-- Hamburger Toggle Button -->
     <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
