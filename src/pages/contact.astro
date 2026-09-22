@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
+import DuchessImg from '../images/duchess.webp';
+import MPImg from '../images/ian-lavery.webp';
 ---
 
 <BaseLayout 
@@ -13,6 +15,43 @@ import { Image } from 'astro:assets';
 
 <hr class="divider-full"/>
 
+<section class="prose-container">
+  <h2>Our contact details</h2>
+  <p>Email <a href="mailto:info@headwaynorthumberland.org" class="text-link"> info@headwaynorthumberland.org</a></p>
+  <p>Lynn Jones (chairperson and trustee) on <a href="tel:01670788397" class="text-link"> 01670 788 397</a></p>
+  <p>David Howcroft (volunteer and trustee) on <a href="tel:01670511687" class="text-link">01670 511 687</a></p>
+</section>
 
+<hr class="divider-full"/>
+
+<section class="prose-container">
+  <h2>National helpline</h2>
+  <p><a href="tel:08088002244" class="text-link">0808 800 2244</a> or at <a href="mailto:helpline@headway.org.uk" class="text-link"> helpline@headway.org.uk</a></p>
+  <p>The Headway helpline is a free, confidential service available to anyone with a question about brain injury - from survivors and carers to students and professionals. Open 9am - 5pm, Monday to Friday, but you can leave an answerphone message at any time.</p>
+</section>
+
+<hr class="divider-full"/>
+
+<section>
+  <div class="prose-container">
+    <h2>Getting to know us</h2>
+    <h3>Our Committee</h3>
+    <p>Our Management Committee work to make life better for ABI survivors and those with neurological conditions.</p>
+    <p>Lynn Jones (Chairperson), Rachael Jobson (Secretary and Treasurer), and David Howcroft (Member) and My Brain Star leader.</p>
+    <h3>Our Patrons</h3>
+    <p>Our Patrons include Jane, Her Grace, The Duchess of Northumberland and Ian Lavery, MP for Wansbeck and Parliamentary Brain Injury Champion.</p>
+    <p>Headway Northumberland was launched on 13 April 2018 at an event at The Alnwick Garden by The Duchess of Northumberland.</p>
+  </div>
+  <div class="photo-pair">
+    <figure>
+      <Image src={DuchessImg} alt="The Duchess of Northumberland" />
+      <figcaption>The Duchess of Northumberland</figcaption>
+    </figure>
+    <figure>
+      <Image src={MPImg} alt="Ian Lavery, MP for Wansbeck" />
+      <figcaption>Ian Lavery, MP for Wansbeck</figcaption>
+    </figure>
+  </div>
+</section>
 
 </BaseLayout>
